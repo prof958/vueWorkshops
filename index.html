@@ -14,6 +14,7 @@
   <body>
     <div id="app">
         <div class="nav-bar"></div>
+        <div class="cart">Cart({{ cart }})</div>
         <div class="product-display">
           <div class="product-container">
             <div class="product-image">
@@ -31,11 +32,13 @@
               <p v-else="available">Kölemiz dolu! ｡･ﾟヾ(✦థ ｪ థ)ﾉ｡ﾟ･｡</p>
               <a :href='url'>Kölenin OnlyFans'i</a>
               <ul>
-                <li v-for="variant in variants"> {{ variant.age }} </li>
+                <li v-for="variant in variants" @mouseover="updateImage(variant.image)"> {{ variant.age }} </li>
               </ul>
               <ul>
                 <li v-for="furryStyle in furryStyles"> {{ furryStyle }} </li>
               </ul>
+              <button class="button" @click="addToCart">Biat Ettir⛓️</button>
+            <button class="button" @click="removeFromCart"> Azad Et👋</button>
             </div>
           </div>
         </div>
