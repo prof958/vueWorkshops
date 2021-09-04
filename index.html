@@ -21,8 +21,12 @@
             </div>
             <div class="product-info">
               <h1>{{ product }}</h1>
+              <p v-show="discount">İndirimli fiyat!!!</p>
               <p>{{ description }}</p>
-              <a :href='url'>Kölenin onlyfansi</a>
+              <p v-if="available > 6">Kölemiz haftanın {{available}} günü boşta!</p>
+              <p v-else-if="available <= 6 && available > 0">Kölemiz çok popüler, {{available}} gün boşta...</p>
+              <p v-else="available">Kölemiz dolu!</p>
+              <a :href='url'>Kölenin OnlyFans'i</a>
             </div>
           </div>
         </div>
