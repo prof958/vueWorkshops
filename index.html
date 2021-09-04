@@ -18,7 +18,8 @@
         <div class="product-display">
           <div class="product-container">
             <div class="product-image">
-            <img :src='image'>
+            <img :src='image'
+                  :class="{ 'out-of-stock-img': available <= 0 }">
             </div>
             <div class="product-info">
               <h1>{{ product }}</h1>
@@ -31,13 +32,25 @@
               <p v-else-if="available <= 6 && available > 0">Kölemiz çok popüler, {{available}} gün boşta...</p>
               <p v-else="available">Kölemiz dolu! ｡･ﾟヾ(✦థ ｪ థ)ﾉ｡ﾟ･｡</p>
               <a :href='url'>Kölenin OnlyFans'i</a>
-              <ul>
-                <li v-for="variant in variants" @mouseover="updateImage(variant.image)"> {{ variant.age }} </li>
-              </ul>
+              <div 
+                v-for="variant in variants" 
+                :key="variant.id" 
+                @mouseover="updateImage(variant.image)" 
+                class="color-circle"
+                :style="{ backgroundColor: variant.hairColor }"> 
+              </div>
               <ul>
                 <li v-for="furryStyle in furryStyles"> {{ furryStyle }} </li>
               </ul>
-              <button class="button" @click="addToCart">Biat Ettir⛓️</button>
+              <button class="button" 
+                      @click="addToCart"
+                      :disabled="available <= 0"
+                      :class="{ disabledButton: available <= 0 }"
+                      
+                      >
+                      
+                      
+                      Biat Ettir⛓️</button>
             <button class="button" @click="removeFromCart"> Azad Et👋</button>
             </div>
           </div>

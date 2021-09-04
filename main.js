@@ -10,8 +10,8 @@ const app = Vue.createApp({
             cart: 0,
             experiences: ['8 yıl tecrübe', 'İtalyan ve Türk Mutfağı', 'Türkçe, Almanca ve Azerice konuşabilme', 'Tam 200 cümle kurabiliyor'],
             variants: [
-                { id: 2234, age: '23', image: './assets/images/kole1.jpg' },
-                { id: 2235, age: '21', image: './assets/images/kole2.jpg' }
+                { id: 2234, hairColor: '#ffd09e', image: './assets/images/kole1.jpg' },
+                { id: 2235, hairColor: '#bf0016', image: './assets/images/kole2.jpg' }
             ],
             furryStyles: ['Neko 🐈', 'Kitsune 🦊', 'Canine 🐕', 'Dragon 🐉'],
         }
