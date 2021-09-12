@@ -23,17 +23,17 @@
           <img :src='image' :class="{ 'out-of-stock-img': available <= 0 }">
         </div>
         <div class="product-info">
-          <h1>{{ product }}</h1>
+          <h1>{{ title }}</h1>
           <p>{{ description }}</p>
           <ul>
             <li v-for="experience in experiences"> {{ experience }} </li>
           </ul>
-          <p v-show="discount">İndirimli fiyat!!!</p>
+          <p>{{onSale}}</p>
           <p v-if="available > 6">Kölemiz haftanın {{available}} günü boşta!</p>
           <p v-else-if="available <= 6 && available > 0">Kölemiz çok popüler, {{available}} gün boşta...</p>
           <p v-else="available">Kölemiz dolu! ｡･ﾟヾ(✦థ ｪ థ)ﾉ｡ﾟ･｡</p>
           <a :href='url'>Kölenin OnlyFans'i</a>
-          <div v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)"
+          <div v-for="(variant,index) in variants" :key="variant.id" @mouseover="updateProduct(index)"
             class="color-circle" :style="{ backgroundColor: variant.hairColor }">
           </div>
           <ul>
